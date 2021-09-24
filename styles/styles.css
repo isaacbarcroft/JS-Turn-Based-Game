@@ -1,4 +1,18 @@
-p {
-  color: purple;
+.choose-char-message {
+  color: red;
+}
+
+.player1-name, .player2-name {
+  text-decoration: underline;
+  font-weight: 900;
+}
+
+.player1-display {
+  border-top: 3px solid black;
+  border-bottom: 2px dashed purple;
+}
+
+.player1-attack-message, .player2-attack-message {
+  color: red;
 }
 /*# sourceMappingURL=styles.css.map */

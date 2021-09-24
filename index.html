@@ -1,21 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="/styles/styles.css">
     <title>JS-Turn-Based-Game</title>
 </head>
 
 
 <body>
+    <div class="choose-char-container">
+        <p class="choose-char-message">game</p>
+        <label for="heros">Choose A Hero:</label>
+        <select id="hero-select" name="hero">
+            <option value="Hero1">Hero1</option>
+            <option value="Hero2">Hero2</option>
+            <option value="Hero3">Hero3</option>
+            <option value="Hero4">Hero4</option>
+            <option value="Hero5">Hero5</option>
+        </select>
+        <button type="submit" class='submit-hero-selection'>Enter</button>
+    </div>
+
+    <div class="choose-attack-container">
+        <label for="attacks">Choose your attack:</label>
+        <select id="attack-select" name="attack">
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+        </select>
+        <button type="submit" class='submit-attack-selection'>Attack</button>
+    </div>
+
+        <div class="display">
+            <div class="player1-display">
+                <p class="player1-name">Player 1: </p>
+                <p class="player1-health"> Health: </p>
+                <p class="player1-attack-message"></p>
+            </div>
+            <div class="player2-display">
+                <p class="player2-name">Computer: Enemy</p>
+                <p class="player2-health">Health: </p>
+                <p class="player2-attack-message"></p>
+            </div>
+
+        </div>
+
     <div> </div>
-    <button class='attack'>Attack</button>
+
     <div> </div>
-<body>
+    <script src="main.js"></script>
+
+    <body>
 
 
-</body>
+    </body>
+
 </html>
