@@ -9,63 +9,83 @@ class Hero extends Character {
     constructor({heatlh} = {}) {
         super();
         this.health = 500;
+        this.attacks = [{ Kick: 100 }, { Punch: 75 }, { Tackle: 20 }, { Bite: 10 }, { SplashPotion: 65 }];
     }
 }
 
-class Hero1 extends Hero {
+class Healer extends Hero {
     constructor({} = {}) {
         super();
         this.name = "Healer";
         this.health = 750;
-        this.attacks = [{ Kick: 100 }, { Punch: 75 }, { Tackle: 20 }, { Bite: 10 }, { SplashPotion: 65 }];  //eventually add magic method like increase health or other
+        this.specialAttacks = [{ Roundhouse: 250}, { NinjiChop: 150}];  //eventually add magic method like increase health or other
     }
 }
 
-//warlock
-
-class Hero2 extends Hero {
+class Juggernaut extends Hero {
     constructor({ name, health, attacks } = {}) {
         super();
         this.name = "Juggernaut";
         this.health = 1000;
-        this.attacks = [{ Kick: 100 }, { Punch: 75 }, { Tackle: 20 }, { Bite: 10 }, { SplashPotion: 65 }];
+        this.specialAttacks = [ { ChokeSlam: 300} , { CurbStomp: 250 }];
     }
 }
 
-class Hero3 extends Hero {
+class Warlock extends Hero {
     constructor({ name, health, attacks } = {}) {
         super();
-        this.name = 'Hero3';
+        this.name = 'Warlock';
         this.health = 1000;
-        this.attacks = [{ Kick: 100 }, { Punch: 75 }, { Tackle: 20 }, { Bite: 10 }, { SplashPotion: 65 }];
+        this.specialAttacks = [{Stunner: 300}, {PeoplesElbow: 250}];
     }
 }
 
-class Hero4 extends Hero {
+class Sorcerer extends Hero {
     constructor({ name, health, attacks } = {}) {
         super();
-        this.name = "Hero4";
+        this.name = "Sorcerer";
         this.health = 1000;
-        this.attacks = [{ Kick: 100 }, { Punch: 75 }, { Tackle: 20 }, { Bite: 10 }, { SplashPotion: 65 }];
+        this.specialAttacks = [{ MillDollarDream: 300},{ Dementor: 200}];
     }
 }
 
-class Hero5 extends Hero {
+class Rogue extends Hero {
     constructor({ name, health, attacks } = {}) {
         super();
-        this.name = "Hero5";
+        this.name = "Rogue";
         this.health = 1000;
-        this.attacks = [{ Kick: 100 }, { Punch: 75 }, { Tackle: 20 }, { Bite: 10 }, { SplashPotion: 65 }];
+        this.specialAttacks = [{DDT: 200},{Piledriver: 300}];
     }
 }
 
-class Enemy extends Character {
+class Monster extends Character {
     constructor({ name } = {}) {
         super();
-        this.name = "Enemy";
-        this.attacks = [{ Kick: 100 }, { Punch: 75 }, { Tackle: 20 }, { Bite: 10 }, { SplashPotion: 65 }];
-    }
+        this.name = "Monster";
+        this.health = 500;
+        this.attacks = [{ Kick: 75 }, { Punch: 60 }, { Tackle: 20 }, { Bite: 10 }, { SplashPotion: 45 }];
+    } //changed out values of health and values for attacks
 }
+
+class Enemy2 extends Character {
+    constructor({ name } = {}) {
+        super();
+        this.name = "Mid-Level Bad Guy"; //needs better name 
+        this.name = 750
+        this.attacks = [{ Kick: 90}, { Punch: 75 }, { Tackle: 25 }, { Bite: 15 }, { SplashPotion: 65 }];
+    } //changed out values of health and values for attacks
+}
+
+class Warlord extends Character {
+    constructor({ name } = {}) {
+        super();
+        this.name = "Warlord";
+        this.attacks = [{ Kick: 125}, { Punch: 100 }, { Tackle: 30 }, { Bite: 25 }, { SplashPotion: 75 }];
+    } //changed out values for attacks
+}
+
+``
+
 
 // class Team {
 //     constructor() {
