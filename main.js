@@ -1,17 +1,18 @@
 class Character {
     constructor(name, health) {
         this.name = name;
-        this.health = 1000;
+        this.health = 100;
     }
 }
 
 class Hero extends Character {
-    constructor({heatlh} = {}) {
+    constructor({ heatlh } = {}) {
         super();
         this.health = 500;
         this.attacks = [{ Kick: 100 }, { Punch: 75 }, { Tackle: 20 }, { Bite: 10 }, { SplashPotion: 65 }];
     }
 }
+
 
 class Healer extends Hero {
     constructor({} = {}) {
@@ -96,10 +97,10 @@ class Warlord extends Character {
 
 class Game {
     constructor() {
-       //this.heros = [{...new Hero1}, {...new Hero2},{...new Hero3},{...new Hero4},{...new Hero5}];
-      // this.enemies = [{...new Enemy}, {...new Enemy}, {...new Enemy}, {...new Enemy}, {...new Enemy}];
-      this.hero = [];
-      this.enemy = [];
+        //this.heros = [{...new Hero1}, {...new Hero2},{...new Hero3},{...new Hero4},{...new Hero5}];
+        // this.enemies = [{...new Enemy}, {...new Enemy}, {...new Enemy}, {...new Enemy}, {...new Enemy}];
+        this.hero = [];
+        this.enemy = [];
     }
 
     getCharacter() {
@@ -107,7 +108,7 @@ class Game {
         chooseCharMessage.textContent = "Please Choose a Character";
 
         let heroSelection;
-        heroSelectBtn.addEventListener('click', ()=> {
+        heroSelectBtn.addEventListener('click', () => {
             heroSelection = selectElemHero.options[selectElemHero.selectedIndex].value;
             player1Display.textContent = `Player 1: ${heroSelection}`;
 
@@ -143,26 +144,43 @@ class Game {
         for (let i = 0; i < arr.length; i++) {
             for (let property in arr[i]) {
                 str += `<option value="${arr[i][property]}">${property}</option>`
-              }
+            }
         }
         selectElemAttack.innerHTML = str;
+    }
+    isGameOver() {
+        if (this.hero.health <= 0) {
+            console.log("GAME OVER YOU LOST");
+            attackSelectBtn.disabled = true;
+        } else if (this.enemy[0].health <= 0 && this.enemy.length >= 2) {
+            this.enemy.shift();
+            console.log("An enemy has died!")
+        } else if (this.enemy[0].health >= 0) {
+            return;
+        } else {
+            attackSelectBtn.disabled = true;
+            console.log('YOU WON!!')
         }
+    }
+    
 
+    
 
     randomizeEnemy() {
         //let attackList = [{"Body Slam": 200}, {"Rage": 350}, {"Ice Hammer": 125}, {"Fire Punch": 425}, {"Burn": 175}, {"Explosion": 475}, {"Blast Beam": 230}, {"Sky Attack": 80}];
-        this.enemy = new Enemy();
-        player2Health.textContent = `Health: ${this.enemy.health}`;
+        this.enemy = [new Enemy(), new Enemy(), new Enemy()]; //this will change to Stephanie's extended enemy classes
+        console.log(this.enemy);
+        player2Health.textContent = `Health: ${this.enemy[0].health}`;
         console.log("Enemy: ", this.enemy);
     }
 
     randomizeAttackPower(value) {
-       return Math.floor(Math.random() * parseInt(value));
+        return Math.floor(Math.random() * parseInt(value));
     }
 
     enemyAttack() {
         console.log(this.enemy);
-        let enemyAttackList = this.enemy.attacks;
+        let enemyAttackList = this.enemy[0].attacks;
         let randomIndex = Math.floor(Math.random() * enemyAttackList.length);
         console.log(randomIndex);
         console.log(enemyAttackList[randomIndex])
@@ -179,20 +197,23 @@ class Game {
 
 
     play() {
+
         attackSelectContainer.style.display = "none";
         let player1 = this.getCharacter();
         let player2 = this.randomizeEnemy();
 
         let attackSelectionValue;
         attackSelectBtn.addEventListener('click', () => {
-            let selection =  selectElemAttack.options[selectElemAttack.selectedIndex]
+            let selection = selectElemAttack.options[selectElemAttack.selectedIndex]
             attackSelectionValue = selection.value;
             let damageInflicted = this.randomizeAttackPower(selection.value);
             player1Message.textContent = `Player 1 used ${selection.innerHTML}!!! Minus ${damageInflicted} from the enemy's health!`
-            this.enemy.health -= damageInflicted;
-            player2Health.textContent = `Health: ${this.enemy.health}`;
-            
+            this.enemy[0].health -= damageInflicted;
+            player2Health.textContent = `Health: ${this.enemy[0].health}`;
+
             this.enemyAttack();
+
+            this.isGameOver();
         });
     }
 }
