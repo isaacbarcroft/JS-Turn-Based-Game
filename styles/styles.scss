@@ -13,10 +13,46 @@
     border-bottom: 2px dashed purple;
 }
 
-.player1-health, .player2-health {
-
+.player1-attack-message, .player2-attack-message {
+    color:springgreen;
 }
 
-.player1-attack-message, .player2-attack-message {
-    color: red;
+///HEALTH BARS////
+#player1-health, #player2-health{
+	position: relative;
+	height: 30px;
+	width: 250px;
+	border: gray 3px solid;
+	border-radius: 3px;
+	margin-right: 20px;
+	display: inline-block;
+    font-family: monospace;
+}
+
+#player1-health-bar, #player2-health-bar {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: lightgreen;
+}
+////BONUS HEALTH BARS/////
+#player1-bonus-health, #player2-bonus-health{
+	position: relative;
+	height: 30px;
+	width: 200px;
+	border: gray 3px solid;
+	border-radius: 3px;
+	margin-right: 20px;
+	display: inline-block;
+}
+
+#player1-bonus-health-bar, #player2-bonus-health-bar {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background:rgb(110, 230, 230);
 }

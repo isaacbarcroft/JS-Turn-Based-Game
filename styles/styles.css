@@ -13,6 +13,45 @@
 }
 
 .player1-attack-message, .player2-attack-message {
-  color: red;
+  color: springgreen;
+}
+
+#player1-health, #player2-health {
+  position: relative;
+  height: 30px;
+  width: 250px;
+  border: gray 3px solid;
+  border-radius: 3px;
+  margin-right: 20px;
+  display: inline-block;
+  font-family: monospace;
+}
+
+#player1-health-bar, #player2-health-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: lightgreen;
+}
+
+#player1-bonus-health, #player2-bonus-health {
+  position: relative;
+  height: 30px;
+  width: 200px;
+  border: gray 3px solid;
+  border-radius: 3px;
+  margin-right: 20px;
+  display: inline-block;
+}
+
+#player1-bonus-health-bar, #player2-bonus-health-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #6ee6e6;
 }
 /*# sourceMappingURL=styles.css.map */

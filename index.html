@@ -40,18 +40,20 @@
         <div class="display">
             <div class="player1-display">
                 <p class="player1-name">Player 1: </p>
-                <p class="player1-health"> Health: </p>
+                <div id="player1-health"><div id="player1-health-bar"></div></div>
+                <div id="player1-bonus-health"><div id="player1-bonus-health-bar"></div></div>
                 <p class="player1-attack-message"></p>
             </div>
             <div class="player2-display">
                 <p class="player2-name">Computer: Enemy</p>
-                <p class="player2-health">Health: </p>
+                <div id="player2-health"><div id="player2-health-bar"></div></div>
+                <div id="player2-bonus-health"><div id="player2-bonus-health-bar"></div></div>
                 <p class="player2-attack-message"></p>
             </div>
 
         </div>
 
-    <div> </div>
+    <div> <button class="reset" onClick="window.location.reload();">RESET</button></div>
 
     <div> </div>
     <script src="main.js"></script>

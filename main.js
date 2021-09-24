@@ -134,8 +134,9 @@ class Game {
             console.log("Hero: ", this.hero);
             charSelectContainer.style.display = "none";
             attackSelectContainer.style.display = "block";
-            player1Health.textContent = `Health: ${this.hero.health}`;
+            player1Health.textContent = `${this.hero.health}`;
             this.selectAttackOptions(this.hero.attacks);
+           
 
         });
     }
@@ -168,16 +169,31 @@ class Game {
 
     randomizeEnemy() {
         //let attackList = [{"Body Slam": 200}, {"Rage": 350}, {"Ice Hammer": 125}, {"Fire Punch": 425}, {"Burn": 175}, {"Explosion": 475}, {"Blast Beam": 230}, {"Sky Attack": 80}];
+<<<<<<< HEAD
         this.enemy = [new Enemy(), new Enemy(), new Enemy()]; //this will change to Stephanie's extended enemy classes
         console.log(this.enemy);
         player2Health.textContent = `Health: ${this.enemy[0].health}`;
+=======
+        this.enemy = new Enemy();
+        player2Health.textContent = `${this.enemy.health}`;
+>>>>>>> 6945c8a (health bars)
         console.log("Enemy: ", this.enemy);
     }
+    
+    ////HEALTH CHANGE////////
+    healthChange() {
+	    
+        player1Health.style.width = this.hero.health/10 + "%";
+	    player2Health.style.width =  this.enemy.health/10 + "%";
+    }   
+    ////HEALTH CHANGE////////
+
+
 
     randomizeAttackPower(value) {
         return Math.floor(Math.random() * parseInt(value));
     }
-
+   
     enemyAttack() {
         console.log(this.enemy);
         let enemyAttackList = this.enemy[0].attacks;
@@ -187,11 +203,11 @@ class Game {
         console.log(Object.keys(enemyAttackList[randomIndex]))
         let enemyAttack = Object.keys(enemyAttackList[randomIndex])[0];
         let damageInflicted = this.randomizeAttackPower(Object.values(enemyAttackList[randomIndex])[0]);
-
+        console.log(damageInflicted)
         player2Message.textContent = `The computer used ${enemyAttack}!!! Minus ${damageInflicted} from the enemy's health!`
         console.log(this.hero.health)
-        this.hero.health -= damageInflicted;
-        player1Health.textContent = `Health: ${this.hero.health}`;
+        this.hero.health -= damageInflicted; 
+        player1Health.textContent = `${this.hero.health/10 + "%"}`;
     }
 
 
@@ -207,13 +223,14 @@ class Game {
             let selection = selectElemAttack.options[selectElemAttack.selectedIndex]
             attackSelectionValue = selection.value;
             let damageInflicted = this.randomizeAttackPower(selection.value);
+            console.log(this.randomizeAttackPower(selection.value));
             player1Message.textContent = `Player 1 used ${selection.innerHTML}!!! Minus ${damageInflicted} from the enemy's health!`
             this.enemy[0].health -= damageInflicted;
-            player2Health.textContent = `Health: ${this.enemy[0].health}`;
-
-            this.enemyAttack();
-
-            this.isGameOver();
+            player2Health.textContent = `${this.enemy[0].health/10 + "%"}`;////HEALTH
+    
+            
+            this.enemyAttack()
+            this.healthChange(); /// Isaac- HEALTH
         });
     }
 }
@@ -226,14 +243,15 @@ const selectElemHero = document.querySelector('#hero-select');
 const selectElemAttack = document.querySelector('#attack-select');
 const player1Display = document.querySelector('.player1-name');
 //const player2Display = document.querySelector('.player2-name');
-const player1Health = document.querySelector('.player1-health');
-const player2Health = document.querySelector('.player2-health');
+const player1Health = document.querySelector('#player1-health-bar');
+const player2Health = document.querySelector('#player2-health-bar');
 const player1Message = document.querySelector('.player1-attack-message');
 const player2Message = document.querySelector('.player2-attack-message');
 const heroSelectBtn = document.querySelector('.submit-hero-selection');
 const attackSelectBtn = document.querySelector('.submit-attack-selection');
-
+const reset = document.querySelector('.reset');
 const game = new Game();
+
 game.play();
 
 
