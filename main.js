@@ -110,12 +110,14 @@ class Game {
 
     getCharacter() {
 
-        chooseCharMessage.textContent = "Please Choose a Character";
+        startGameMessage.textContent = "Enter Your Name & Choose a Character:";
 
         let heroSelection;
-        heroSelectBtn.addEventListener('click', () => {
+        let name;
+        gameStartBtn.addEventListener('click', () => {
             heroSelection = selectElemHero.options[selectElemHero.selectedIndex].value;
-            player1Display.textContent = `Player 1: ${heroSelection}`;
+            name = playerNameInputBox.value;
+            player1Display.textContent = `${name}: ${heroSelection}`;
 
             switch (heroSelection) {
                 case 'Healer':
@@ -138,6 +140,7 @@ class Game {
             } //updated the names above
             console.log("Hero: ", this.hero);
             charSelectContainer.style.display = "none";
+            nameSelectContainer.style.display = "none";
             attackSelectContainer.style.display = "block";
             player1Health.textContent = `${this.hero.health}`;
             this.selectAttackOptions(this.hero.attacks);
@@ -235,19 +238,20 @@ class Game {
     }
 }
 
-
+const nameSelectContainer = document.querySelector('.name-input-container');
 const charSelectContainer = document.querySelector('.choose-char-container');
 const attackSelectContainer = document.querySelector('.choose-attack-container');
-const chooseCharMessage = document.querySelector('.choose-char-message');
+const startGameMessage = document.querySelector('.start-game-message');
 const selectElemHero = document.querySelector('#hero-select');
 const selectElemAttack = document.querySelector('#attack-select');
+const playerNameInputBox = document.querySelector('#player-name');
 const player1Display = document.querySelector('.player1-name');
 //const player2Display = document.querySelector('.player2-name');
 const player1Health = document.querySelector('#player1-health-bar');
 const player2Health = document.querySelector('#player2-health-bar');
 const player1Message = document.querySelector('.player1-attack-message');
 const player2Message = document.querySelector('.player2-attack-message');
-const heroSelectBtn = document.querySelector('.submit-hero-selection');
+const gameStartBtn = document.querySelector('.submit-game-start');
 const attackSelectBtn = document.querySelector('.submit-attack-selection');
 const reset = document.querySelector('.reset');
 const game = new Game();
