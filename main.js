@@ -172,9 +172,6 @@ class Game {
         }
     }
     
-
-    
-
     randomizeEnemy() {
         //let attackList = [{"Body Slam": 200}, {"Rage": 350}, {"Ice Hammer": 125}, {"Fire Punch": 425}, {"Burn": 175}, {"Explosion": 475}, {"Blast Beam": 230}, {"Sky Attack": 80}];
         this.enemy = [new Enemy(), new Enemy(), new Enemy()]; //this will change to Stephanie's extended enemy classes
@@ -231,8 +228,14 @@ class Game {
             this.enemy[0].health -= damageInflicted;
             player2Health.textContent = `${this.enemy[0].health/10 + "%"}`;////HEALTH
     
-            
-            this.enemyAttack()
+            setTimeout(() => {
+                this.enemyAttack()
+                setTimeout(() => {
+                    player1Message.textContent = ``;
+                    player2Message.textContent = ``;
+                }, 2500)
+            }, 1000);
+
             this.healthChange(); /// Isaac- HEALTH
         });
     }
