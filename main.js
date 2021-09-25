@@ -85,7 +85,6 @@ class Warlord extends Character {
     } //changed out values for attacks
 }
 
-``
 
 
 // class Team {
@@ -113,24 +112,24 @@ class Game {
             player1Display.textContent = `Player 1: ${heroSelection}`;
 
             switch (heroSelection) {
-                case 'Hero1':
-                    this.hero = new Hero1;
+                case 'Healer':
+                    this.hero = new Healer;
                     break;
-                case 'Hero2':
-                    this.hero = new Hero2;
+                case 'Juggernaut':
+                    this.hero = new Juggernaut;
                     break;
-                case 'Hero3':
-                    this.hero = new Hero3;
+                case 'Warlock':
+                    this.hero = new Warlock;
                     break;
-                case 'Hero4':
-                    this.hero = new Hero4;
+                case 'Sorcerer':
+                    this.hero = new Sorcerer;
                     break;
-                case 'Hero5':
-                    this.hero = new Hero5;
+                case 'Rogue':
+                    this.hero = new Rogue;
                     break;
                 default:
                     this.hero = "ERROR";
-            }
+            } //updated the names above
             console.log("Hero: ", this.hero);
             charSelectContainer.style.display = "none";
             attackSelectContainer.style.display = "block";
@@ -169,14 +168,9 @@ class Game {
 
     randomizeEnemy() {
         //let attackList = [{"Body Slam": 200}, {"Rage": 350}, {"Ice Hammer": 125}, {"Fire Punch": 425}, {"Burn": 175}, {"Explosion": 475}, {"Blast Beam": 230}, {"Sky Attack": 80}];
-<<<<<<< HEAD
         this.enemy = [new Enemy(), new Enemy(), new Enemy()]; //this will change to Stephanie's extended enemy classes
         console.log(this.enemy);
         player2Health.textContent = `Health: ${this.enemy[0].health}`;
-=======
-        this.enemy = new Enemy();
-        player2Health.textContent = `${this.enemy.health}`;
->>>>>>> 6945c8a (health bars)
         console.log("Enemy: ", this.enemy);
     }
     
