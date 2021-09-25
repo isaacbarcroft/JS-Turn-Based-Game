@@ -13,7 +13,7 @@ class Hero extends Character {
     }
 }
 
-class Enemy extends Charater {
+class Enemy extends Character {
     constructor({ heatlh } = {}) {
         super();
         this.attacks = [{ Kick: 100 }, { Punch: 75 }, { Tackle: 20 }, { Bite: 10 }, { SplashPotion: 65 }];
@@ -43,7 +43,7 @@ class Warlock extends Hero {
         super();
         this.name = 'Warlock';
         this.health = 1000;
-        this.specialAttacks = [{Stunner: 300}, {PeoplesElbow: 250}];
+        this.specialAttacks = [{SkullBash: 300}, {PowerWhip: 250}];
     }
 }
 
@@ -52,7 +52,7 @@ class Sorcerer extends Hero {
         super();
         this.name = "Sorcerer";
         this.health = 1000;
-        this.specialAttacks = [{ MillDollarDream: 300},{ Dementor: 200}];
+        this.specialAttacks = [{ PoinsonJab: 300},{ Boomburst: 200}];
     }
 }
 
@@ -61,7 +61,7 @@ class Rogue extends Hero {
         super();
         this.name = "Rogue";
         this.health = 1000;
-        this.specialAttacks = [{DDT: 200},{Piledriver: 300}];
+        this.specialAttacks = [{RazorWind: 200},{ThunderPunch: 300}];
     }
 }
 
