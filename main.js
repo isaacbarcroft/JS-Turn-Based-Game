@@ -1,7 +1,7 @@
 class Character {
     constructor(name, health) {
         this.name = name;
-        this.health = 100;
+        this.health = 1000;
     }
 }
 
@@ -13,13 +13,19 @@ class Hero extends Character {
     }
 }
 
+class Enemy extends Charater {
+    constructor({ heatlh } = {}) {
+        super();
+        this.attacks = [{ Kick: 100 }, { Punch: 75 }, { Tackle: 20 }, { Bite: 10 }, { SplashPotion: 65 }];
+    }
+}
 
 class Healer extends Hero {
     constructor({} = {}) {
         super();
         this.name = "Healer";
         this.health = 750;
-        this.specialAttacks = [{ Roundhouse: 250}, { NinjiChop: 150}];  //eventually add magic method like increase health or other
+        this.specialAttacks = [{ CometPunch: 250}, { Curse: 150}];  //eventually add magic method like increase health or other
     }
 }
 
@@ -28,7 +34,7 @@ class Juggernaut extends Hero {
         super();
         this.name = "Juggernaut";
         this.health = 1000;
-        this.specialAttacks = [ { ChokeSlam: 300} , { CurbStomp: 250 }];
+        this.specialAttacks = [ { MegaPunch: 300} , { RockSmash: 250 }];
     }
 }
 
@@ -59,7 +65,7 @@ class Rogue extends Hero {
     }
 }
 
-class Monster extends Character {
+class Monster extends Enemy {
     constructor({ name } = {}) {
         super();
         this.name = "Monster";
@@ -68,7 +74,7 @@ class Monster extends Character {
     } //changed out values of health and values for attacks
 }
 
-class Enemy2 extends Character {
+class Enemy2 extends Enemy {
     constructor({ name } = {}) {
         super();
         this.name = "Mid-Level Bad Guy"; //needs better name 
@@ -77,7 +83,7 @@ class Enemy2 extends Character {
     } //changed out values of health and values for attacks
 }
 
-class Warlord extends Character {
+class Warlord extends Enemy {
     constructor({ name } = {}) {
         super();
         this.name = "Warlord";
