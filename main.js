@@ -233,7 +233,7 @@ class Game {
                 setTimeout(() => {
                     player1Message.textContent = ``;
                     player2Message.textContent = ``;
-                }, 2500)
+                }, 1000)
             }, 1000);
 
             this.healthChange(); /// Isaac- HEALTH
