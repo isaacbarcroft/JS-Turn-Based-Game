@@ -227,7 +227,7 @@ class Game {
     healthChange() {
 	    
         player1Health.style.width = this.hero.health/10 + "%";
-	    player2Health.style.width =  this.enemy.health/10 + "%";
+	    player2Health.style.width =  this.enemy[0].health/10 + "%";
     }   
     ////HEALTH CHANGE////////
 

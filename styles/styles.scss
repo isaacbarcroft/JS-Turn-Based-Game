@@ -1,3 +1,12 @@
+* {
+	box-sizing: border-box;
+}
+
+
+body {
+	background: url('/images/Halo-Background.jpeg') top left/ cover no-repeat;
+}
+
 
 .start-game-message{
     color: red;
@@ -8,20 +17,47 @@
  font-weight: 900;
 }
 
+.title {
+	font-family: Arial, Helvetica, sans-serif;
+	color:white;
+	text-align: center;
+
+}
+.display {
+	display: flex;
+	justify-content: space-around;
+
+}
+
 .player1-display {
-    border-top: 3px solid black;
-    border-bottom: 2px dashed purple;
+	color:white;
+}
+
+.master-chief {
+	display: flex;
+	width: 50%;
+	justify-content: center;
 }
 
 .player2-display {
-    
-    border-bottom: 2px dashed purple;
+    color:white;
+}
+
+.enemy {
+	display: flex;
+	width: 65%;
+	height: 65%;
 }
 
 .player1-attack-message, .player2-attack-message {
     color:springgreen;
 }
 
+
+.reset {
+	display: flex;
+	;
+}
 ///HEALTH BARS////
 #player1-health, #player2-health{
 	position: relative;
