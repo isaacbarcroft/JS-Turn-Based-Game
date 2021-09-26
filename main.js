@@ -34,7 +34,7 @@ class Juggernaut extends Hero {
         super();
         this.name = "Juggernaut";
         this.health = 1000;
-        this.specialAttacks = [ { MegaPunch: 300} , { RockSmash: 250 }];
+        // this.specialAttacks = [ { MegaPunch: 300} , { RockSmash: 250 }];
     }
 }
 
@@ -43,7 +43,7 @@ class Warlock extends Hero {
         super();
         this.name = 'Warlock';
         this.health = 1000;
-        this.specialAttacks = [{SkullBash: 300}, {PowerWhip: 250}];
+        // this.specialAttacks = [{SkullBash: 300}, {PowerWhip: 250}];
     }
 }
 
@@ -51,8 +51,8 @@ class Sorcerer extends Hero {
     constructor({ name, health, attacks } = {}) {
         super();
         this.name = "Sorcerer";
-        this.health = 1000;
-        this.specialAttacks = [{ PoinsonJab: 300},{ Boomburst: 200}];
+        this.health = 750;
+        // this.specialAttacks = [{ PoinsonJab: 300},{ Boomburst: 200}];
     }
 }
 
@@ -61,7 +61,7 @@ class Rogue extends Hero {
         super();
         this.name = "Rogue";
         this.health = 1000;
-        this.specialAttacks = [{RazorWind: 200},{ThunderPunch: 300}];
+        // this.specialAttacks = [{RazorWind: 200},{ThunderPunch: 300}];
     }
 }
 
@@ -74,10 +74,10 @@ class Monster extends Enemy {
     } //changed out values of health and values for attacks
 }
 
-class Enemy2 extends Enemy {
+class Deathspawn extends Enemy {
     constructor({ name } = {}) {
         super();
-        this.name = "Mid-Level Bad Guy"; //needs better name 
+        this.name = "Death Spawn"; //needs better name 
         this.name = 750
         this.attacks = [{ Kick: 90}, { Punch: 75 }, { Tackle: 25 }, { Bite: 15 }, { SplashPotion: 65 }];
     } //changed out values of health and values for attacks
