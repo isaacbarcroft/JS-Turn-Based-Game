@@ -5,27 +5,33 @@
 
 body {
 	background: url('/images/Halo-Background.jpeg') top left/ cover no-repeat;
+	font-family: 'Orbitron';
 }
+ .title {
+	 font-family: 'Orbitron';
+	 font-size: 40px;
+	 color: white;
+	 text-align: center;
+ }
 
+ button {
+	 font-family: 'Orbitron';
+ }
 
 .start-game-message{
     color: red;
 }
 
 .player1-name, .player2-name {
- text-decoration: underline;
  font-weight: 900;
+ font-size: 20px;
+ margin-bottom: 5px;
 }
 
-.title {
-	font-family: Arial, Helvetica, sans-serif;
-	color:white;
-	text-align: center;
 
-}
 .display {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 
 }
 
@@ -35,8 +41,9 @@ body {
 
 .master-chief {
 	display: flex;
-	width: 50%;
-	justify-content: center;
+	transform: scaleX(-1);
+	width: 40%;
+	margin-left: 5em;
 }
 
 .player2-display {
@@ -45,6 +52,7 @@ body {
 
 .enemy {
 	display: flex;
+	transform: scaleX(-1);
 	width: 65%;
 	height: 65%;
 }
@@ -52,18 +60,33 @@ body {
 .player1-attack-message, .player2-attack-message {
     color:springgreen;
 }
+ 
+.choose-attack-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
 
+.reset-btn {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 8em;
+}
 
 .reset {
-	display: flex;
-	;
+	height: 50px;
+	width: 100px;
+	font-size: 20px;
+	border: solid 5px red;
+
 }
+
 ///HEALTH BARS////
 #player1-health, #player2-health{
 	position: relative;
 	height: 30px;
 	width: 250px;
-	border: gray 3px solid;
+	border: white 3px solid;
 	border-radius: 3px;
 	margin-right: 20px;
 	display: inline-block;
@@ -79,25 +102,21 @@ body {
 	background: lightgreen;
 }
 ////BONUS HEALTH BARS/////
-#player1-bonus-health, #player2-bonus-health{
-	position: relative;
-	height: 30px;
-	width: 200px;
-	border: gray 3px solid;
-	border-radius: 3px;
-	margin-right: 20px;
-	display: inline-block;
-}
+// #player1-bonus-health, #player2-bonus-health{
+// 	position: relative;
+// 	height: 30px;
+// 	width: 200px;
+// 	border: gray 3px solid;
+// 	border-radius: 3px;
+// 	margin-right: 20px;
+// 	display: inline-block;
+// }
 
-#player1-bonus-health-bar, #player2-bonus-health-bar {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	background:rgb(110, 230, 230);
-}
-
-.reset {
-    margin-top: 50px;
-}
+// #player1-bonus-health-bar, #player2-bonus-health-bar {
+// 	position: absolute;
+// 	bottom: 0;
+// 	left: 0;
+// 	height: 100%;
+// 	width: 100%;
+// 	background:rgb(110, 230, 230);
+// }

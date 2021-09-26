@@ -5,6 +5,18 @@
 
 body {
   background: url("/images/Halo-Background.jpeg") top left/cover no-repeat;
+  font-family: 'Orbitron';
+}
+
+.title {
+  font-family: 'Orbitron';
+  font-size: 40px;
+  color: white;
+  text-align: center;
+}
+
+button {
+  font-family: 'Orbitron';
 }
 
 .start-game-message {
@@ -12,22 +24,18 @@ body {
 }
 
 .player1-name, .player2-name {
-  text-decoration: underline;
   font-weight: 900;
-}
-
-.title {
-  font-family: Arial, Helvetica, sans-serif;
-  color: white;
-  text-align: center;
+  font-size: 20px;
+  margin-bottom: 5px;
 }
 
 .display {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .player1-display {
@@ -38,10 +46,10 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 50%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+  width: 40%;
+  margin-left: 5em;
 }
 
 .player2-display {
@@ -52,6 +60,8 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
   width: 65%;
   height: 65%;
 }
@@ -60,17 +70,41 @@ body {
   color: springgreen;
 }
 
-.reset {
+.choose-attack-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.reset-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 8em;
+}
+
+.reset {
+  height: 50px;
+  width: 100px;
+  font-size: 20px;
+  border: solid 5px red;
 }
 
 #player1-health, #player2-health {
   position: relative;
   height: 30px;
   width: 250px;
-  border: gray 3px solid;
+  border: white 3px solid;
   border-radius: 3px;
   margin-right: 20px;
   display: inline-block;
@@ -84,28 +118,5 @@ body {
   height: 100%;
   width: 100%;
   background: lightgreen;
-}
-
-#player1-bonus-health, #player2-bonus-health {
-  position: relative;
-  height: 30px;
-  width: 200px;
-  border: gray 3px solid;
-  border-radius: 3px;
-  margin-right: 20px;
-  display: inline-block;
-}
-
-#player1-bonus-health-bar, #player2-bonus-health-bar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: #6ee6e6;
-}
-
-.reset {
-  margin-top: 50px;
 }
 /*# sourceMappingURL=styles.css.map */
