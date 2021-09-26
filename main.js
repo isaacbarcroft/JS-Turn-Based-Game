@@ -51,8 +51,8 @@ class Sorcerer extends Hero {
     constructor({ name, health, attacks } = {}) {
         super();
         this.name = "Sorcerer";
-        this.health = 750;
-        // this.specialAttacks = [{ PoinsonJab: 300},{ Boomburst: 200}];
+        this.health = 1000;
+        this.specialAttacks = [{ PoinsonJab: 300, count: 5},{ Boomburst: 200}];
     }
 }
 
@@ -113,6 +113,7 @@ class Game {
         startGameMessage.textContent = "Enter Your Name & Choose a Character:";
 
         let heroSelection;
+        let attackSelectionValue;
         let name;
         gameStartBtn.addEventListener('click', () => {
             heroSelection = selectElemHero.options[selectElemHero.selectedIndex].value;
@@ -144,19 +145,61 @@ class Game {
             attackSelectContainer.style.display = "block";
             player1Health.textContent = `${this.hero.health}`;
             this.selectAttackOptions(this.hero.attacks);
-           
+            
+            attackBtnNodeList.forEach((element)=> {
+                console.log("adding event listener")
+                element.addEventListener('click', () => {
+                    console.log("event listener fired")
+                    attackSelectionValue = element.value;
+                    console.log(element.value);
+                    let damageInflicted = this.randomizeAttackPower(element.value);
+                    console.log(this.randomizeAttackPower(element.value));
+                    player1Message.textContent = `Player 1 used ${element.textContent}!!! Minus ${damageInflicted} from the enemy's health!`
+                    this.enemy[0].health -= damageInflicted;
+                    player2Health.textContent = `${this.enemy[0].health/10 + "%"}`;////HEALTH
+        
+                // attackSelectContainer.style.display = "none";
+                let player1 = this.getCharacter();
+                let player2 = this.randomizeEnemy();
+        
+        
+                // attackSelectBtn.addEventListener('click', () => {
+                //     let selection = selectElemAttack.options[selectElemAttack.selectedIndex]
+                //     attackSelectionValue = selection.value;
+                //     let damageInflicted = this.randomizeAttackPower(selection.value);
+                //     console.log(this.randomizeAttackPower(selection.value));
+                //     player1Message.textContent = `Player 1 used ${selection.innerHTML}!!! Minus ${damageInflicted} from the enemy's health!`
+                //     this.enemy[0].health -= damageInflicted;
+                //     player2Health.textContent = `${this.enemy[0].health/10 + "%"}`;////HEALTH
+            
+                    setTimeout(() => {
+                        this.enemyAttack()
+                        setTimeout(() => {
+                            player1Message.textContent = ``;
+                            player2Message.textContent = ``;
+                        }, 2500)
+                    }, 1000);
+        
+                    this.healthChange(); /// Isaac- HEALTH
+                });
+            });
 
         });
+
     }
     selectAttackOptions(arr) {
-        let str;
+        let str
+        ;
         for (let i = 0; i < arr.length; i++) {
             for (let property in arr[i]) {
-                str += `<option value="${arr[i][property]}">${property}</option>`
+                str += `<button id="${i}" value="${arr[i][property]}">${property}</button>`
             }
         }
-        selectElemAttack.innerHTML = str;
+        attackBtnContainer.innerHTML = str;
+        attackBtnNodeList = attackBtnContainer.childNodes;
+        console.log("NODE LIST:", attackBtnNodeList)
     }
+
     isGameOver() {
         if (this.hero.health <= 0) {
             console.log("GAME OVER YOU LOST");
@@ -211,42 +254,27 @@ class Game {
     }
 
 
-
     play() {
+        this.getCharacter();
+        this.randomizeEnemy();
 
-        attackSelectContainer.style.display = "none";
-        let player1 = this.getCharacter();
-        let player2 = this.randomizeEnemy();
-
-        let attackSelectionValue;
-        attackSelectBtn.addEventListener('click', () => {
-            let selection = selectElemAttack.options[selectElemAttack.selectedIndex]
-            attackSelectionValue = selection.value;
-            let damageInflicted = this.randomizeAttackPower(selection.value);
-            console.log(this.randomizeAttackPower(selection.value));
-            player1Message.textContent = `Player 1 used ${selection.innerHTML}!!! Minus ${damageInflicted} from the enemy's health!`
-            this.enemy[0].health -= damageInflicted;
-            player2Health.textContent = `${this.enemy[0].health/10 + "%"}`;////HEALTH
-    
-            setTimeout(() => {
-                this.enemyAttack()
-                setTimeout(() => {
-                    player1Message.textContent = ``;
-                    player2Message.textContent = ``;
-                }, 1000)
-            }, 1000);
-
-            this.healthChange(); /// Isaac- HEALTH
-        });
+        console.log('her0:', this.hero);
+        console.log("condition fired")
+        
     }
+    
 }
 
+
+// const attack1 = document.querySelector('.attack1');
 const nameSelectContainer = document.querySelector('.name-input-container');
 const charSelectContainer = document.querySelector('.choose-char-container');
 const attackSelectContainer = document.querySelector('.choose-attack-container');
 const startGameMessage = document.querySelector('.start-game-message');
 const selectElemHero = document.querySelector('#hero-select');
-const selectElemAttack = document.querySelector('#attack-select');
+const attackBtnContainer = document.querySelector('#attack-select');
+let attackBtnNodeList;
+console.log(attackBtnNodeList);
 const playerNameInputBox = document.querySelector('#player-name');
 const player1Display = document.querySelector('.player1-name');
 //const player2Display = document.querySelector('.player2-name');
@@ -255,7 +283,7 @@ const player2Health = document.querySelector('#player2-health-bar');
 const player1Message = document.querySelector('.player1-attack-message');
 const player2Message = document.querySelector('.player2-attack-message');
 const gameStartBtn = document.querySelector('.submit-game-start');
-const attackSelectBtn = document.querySelector('.submit-attack-selection');
+// const attackSelectBtn = document.querySelector('#attack-select.button');
 const reset = document.querySelector('.reset');
 const game = new Game();
 
