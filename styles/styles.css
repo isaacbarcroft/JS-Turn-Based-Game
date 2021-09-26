@@ -12,6 +12,10 @@
   border-bottom: 2px dashed purple;
 }
 
+.player2-display {
+  border-bottom: 2px dashed purple;
+}
+
 .player1-attack-message, .player2-attack-message {
   color: springgreen;
 }
@@ -53,5 +57,9 @@
   height: 100%;
   width: 100%;
   background: #6ee6e6;
+}
+
+.reset {
+  margin-top: 10px;
 }
 /*# sourceMappingURL=styles.css.map */
