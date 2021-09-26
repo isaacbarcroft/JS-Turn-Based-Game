@@ -149,6 +149,7 @@ class Game {
                     }, 1000);
         
                     this.healthChange(); 
+                    this.isGameOver();
                 });
             });
 
@@ -228,7 +229,6 @@ const startGameMessage = document.querySelector('.start-game-message');
 const selectElemHero = document.querySelector('#hero-select');
 const attackBtnContainer = document.querySelector('#attack-select');
 let attackBtnNodeList;
-console.log(attackBtnNodeList);
 const playerNameInputBox = document.querySelector('#player-name');
 const player1Display = document.querySelector('.player1-name');
 //const player2Display = document.querySelector('.player2-name');
