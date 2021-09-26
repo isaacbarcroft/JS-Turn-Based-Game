@@ -158,7 +158,7 @@ class Game {
                     this.enemy[0].health -= damageInflicted;
                     player2Health.textContent = `${this.enemy[0].health/10 + "%"}`;////HEALTH
         
-                // attackSelectContainer.style.display = "none";
+                
                 let player1 = this.getCharacter();
                 let player2 = this.randomizeEnemy();
         
@@ -255,6 +255,7 @@ class Game {
 
 
     play() {
+        attackSelectContainer.style.display = "none";
         this.getCharacter();
         this.randomizeEnemy();
 
@@ -283,7 +284,6 @@ const player2Health = document.querySelector('#player2-health-bar');
 const player1Message = document.querySelector('.player1-attack-message');
 const player2Message = document.querySelector('.player2-attack-message');
 const gameStartBtn = document.querySelector('.submit-game-start');
-// const attackSelectBtn = document.querySelector('#attack-select.button');
 const reset = document.querySelector('.reset');
 const game = new Game();
 
