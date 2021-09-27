@@ -5,7 +5,7 @@
 }
 
 body {
-  background: url("/images/Halo-Background.jpeg") no-repeat center center fixed;
+  background-image: url("Halo-Background.jpeg");
   background-size: cover;
   font-family: 'Orbitron';
   height: 100vh;

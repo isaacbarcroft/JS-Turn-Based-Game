@@ -7,7 +7,8 @@
 
 
 body {
-	background: url('/images/Halo-Background.jpeg') no-repeat center center fixed;
+	background-image: url('Halo-Background.jpeg');
+// no-repeat center center fixed;
     background-size: cover;
 	font-family: 'Orbitron';
 	height: 100vh;
@@ -204,7 +205,6 @@ label {
 	margin-bottom: 2rem;
 	font-size: 1.3rem;
 }
-
 
 ////BONUS HEALTH BARS/////
 // #player1-bonus-health, #player2-bonus-health{

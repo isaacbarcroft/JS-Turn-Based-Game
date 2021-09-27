@@ -214,10 +214,10 @@ class Game {
         attackSelectContainer.style.display = "none";
         this.getCharacter();
         this.randomizeEnemy();
-        audio.play();
     }
     
 }
+
 
 window.addEventListener('load', (event) => {
     outerContainer.style.display = 'none';
@@ -226,7 +226,14 @@ window.addEventListener('load', (event) => {
         splashPage.style.display = 'none';
     })
   });
+  audio2 = new Audio("start url");
 
+  audio2.addEventListener('ended',function(){
+        audio.src = "https://vgmsite.com/soundtracks/halo-infinite-set-a-fire-in-your-heart/njazlospea/01%20Set%20a%20Fire%20in%20Your%20Heart.mp3";
+        audio.pause();
+        audio.load();
+        audio.play();
+    });
 
 
 const splashPage = document.querySelector('.splash-page');
