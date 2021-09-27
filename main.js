@@ -92,7 +92,6 @@ class Game {
     }
 
     getCharacter() {
-
         startGameMessage.textContent = "Enter Your Name & Choose a Character:";
 
         let heroSelection;
@@ -185,7 +184,7 @@ class Game {
     
     randomizeEnemy() {
         this.enemy = [new Enemy(), new Enemy(), new Enemy()];
-        player2Health.textContent = `Health: ${this.enemy[0].health}`;
+        player2Health.textContent = `${this.enemy[0].health}`;
     }
     
     healthChange() {
@@ -198,7 +197,6 @@ class Game {
     }
    
     enemyAttack() {
-
         let enemyAttackList = this.enemy[0].attacks;
         let randomIndex = Math.floor(Math.random() * enemyAttackList.length);
 
@@ -220,8 +218,18 @@ class Game {
     
 }
 
+window.addEventListener('load', (event) => {
+    outerContainer.style.display = 'none';
+    gameStartBtn.addEventListener('click', () => {
+        outerContainer.style.display = 'block';
+        splashPage.style.display = 'none';
+    })
+  });
 
-// const attack1 = document.querySelector('.attack1');
+
+
+const splashPage = document.querySelector('.splash-page');
+const outerContainer = document.querySelector('.outer-container');
 const nameSelectContainer = document.querySelector('.name-input-container');
 const charSelectContainer = document.querySelector('.choose-char-container');
 const attackSelectContainer = document.querySelector('.choose-attack-container');
@@ -231,15 +239,18 @@ const attackBtnContainer = document.querySelector('#attack-select');
 let attackBtnNodeList;
 const playerNameInputBox = document.querySelector('#player-name');
 const player1Display = document.querySelector('.player1-name');
-//const player2Display = document.querySelector('.player2-name');
 const player1Health = document.querySelector('#player1-health-bar');
 const player2Health = document.querySelector('#player2-health-bar');
 const player1Message = document.querySelector('.player1-attack-message');
 const player2Message = document.querySelector('.player2-attack-message');
 const gameStartBtn = document.querySelector('.submit-game-start');
 const reset = document.querySelector('.reset');
-const game = new Game();
 
+
+
+
+
+const game = new Game();
 game.play();
 
 

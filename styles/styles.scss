@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
 * {
 	box-sizing: border-box;
 }
@@ -6,7 +9,42 @@
 body {
 	background: url('/images/Halo-Background.jpeg') top left/ cover no-repeat;
 	font-family: 'Orbitron';
+	height: 100vh;
 }
+
+.splash-page {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	bottom: 150px;
+}
+
+.selection-splash {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+
+.choose-char-container {
+	padding-left: 1rem;
+	font-weight: 900;
+}
+
+.name-input-container {
+	font-weight: 900;
+}
+
+label {
+	margin-right: 0.5rem;
+}
+
+
  .title {
 	 font-family: 'Orbitron';
 	 font-size: 40px;
@@ -39,11 +77,18 @@ body {
 	color:white;
 }
 
-.master-chief {
+.player1-display, .player2-display {
 	display: flex;
-	transform: scaleX(-1);
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.master-chief {
+	// display: flex;
+	// transform: scaleX(-1);
 	width: 40%;
-	margin-left: 5em;
+	// margin-left: 5em;
 }
 
 .player2-display {
@@ -51,10 +96,14 @@ body {
 }
 
 .enemy {
-	display: flex;
-	transform: scaleX(-1);
+	// display: flex;
+	// transform: scaleX(-1);
 	width: 65%;
 	height: 65%;
+}
+
+.img {
+	margin: auto;
 }
 
 .player1-attack-message, .player2-attack-message {
@@ -64,21 +113,31 @@ body {
 .choose-attack-container {
 	display: flex;
 	flex-direction: row;
-	justify-content: flex-start;
 }
 
 .reset-btn {
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	margin-bottom: 8em;
+	text-align: center;
 }
 
 .reset {
 	height: 50px;
 	width: 100px;
-	font-size: 20px;
-	border: solid 5px red;
+	border: 3px solid #f44336;
+	color: red;
+	background-color: white;
+	padding: 14px 28px;
+	font-size: 16px;
+	cursor: pointer;
+	text-align: center;
+}
 
+.reset:hover{
+	background: #f44336;
+	color: white;
 }
 
 ///HEALTH BARS////
@@ -101,6 +160,50 @@ body {
 	width: 100%;
 	background: lightgreen;
 }
+
+#attack-select {
+	display: flex;
+	flex-direction: column;
+}
+
+.choose-attack-container {
+	width: 25%;
+	text-align: center;
+	button {
+		font-family: "Press Start 2P";
+		text-align: center;
+	display: inline-block;
+	margin:5px;
+    font-weight: bold;
+    padding: 10px 0 10px 10px ;
+    background-color: lightgray;
+    text-shadow: -1px -1px black, 1px 1px white;
+    color: rgb(70, 70, 70);
+    -webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-o-border-radius: 7px;
+	border-radius: 7px;
+    box-shadow: 0 .2em gray; 
+    cursor: pointer;
+		margin-top: 1rem;
+		padding: 1rem 2rem;
+		font-size: 1rem;
+	}
+	button:active {
+		box-shadow: none;
+		position: relative;
+		top: .2em;
+	}
+	button:hover {
+		background-color: rgb(105, 105, 105);
+		color: white;
+}}
+.attack-btns-label {
+	margin-bottom: 2rem;
+	font-size: 1.3rem;
+}
+
+
 ////BONUS HEALTH BARS/////
 // #player1-bonus-health, #player2-bonus-health{
 // 	position: relative;

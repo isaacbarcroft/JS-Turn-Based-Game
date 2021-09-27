@@ -14,60 +14,68 @@
 
 
 <body>
-    <div class="title">
-        <h1>HALO: THE KNOCK OFF</h1>
-    </div>
-    <div class="name-input-container">
-        <p class="start-game-message">game</p>
-        <label for="player-name"> What's your name hero?:</label>
-        <input type="text" id="player-name" placeholder="Your Name">
+    <div class='splash-page'>
+        <p class="start-game-message"></p>
+        <div class="selection-splash">
+            <div class="name-input-container">
+                <label for="player-name"> What's your name hero?:</label>
+                <input type="text" id="player-name" placeholder="Your Name">
         
-    </div>
-    <div class="choose-char-container">
+            </div>
+            <div class="choose-char-container">
+                <label for="heros">Choose A Hero:</label>
+                <select id="hero-select" name="hero">
+                    <option value="Healer">Healer</option>
+                    <option value="Juggernaut">Juggernaut</option>
+                    <option value="Warlock">Warlock</option>
+                    <option value="Sorcerer">Sorcerer</option>
+                    <option value="Rogue">Rogue</option>
+                </select>
+                <button type="submit" class='submit-game-start'>Enter</button>
+            </div>
+        </div>
 
-        <label for="heros">Choose A Hero:</label>
-        <select id="hero-select" name="hero">
-            <option value="Healer">Healer</option>
-            <option value="Juggernaut">Juggernaut</option>
-            <option value="Warlock">Warlock</option>
-            <option value="Sorcerer">Sorcerer</option>
-            <option value="Rogue">Rogue</option>
-        </select>
-        <button type="submit" class='submit-game-start'>Enter</button>
     </div>
+
+
+    <div class='outer-container'>
+        <div class="title">
+            <h1>HALO: THE KNOCK OFF</h1>
+        </div>
 
         <div class="display">
             <div class="player1-display">
                 <p class="player1-name">HERO</p>
-                <div id="player1-health"><div id="player1-health-bar"></div></div>
-                <p class="player1-attack-message"></p>
-                <div class="hero-img">
-                    <img src="images/MasterChief.png" class="master-chief">
+                <div id="player1-health">
+                    <div id="player1-health-bar"></div>
                 </div>
+                <p class="player1-attack-message"></p>
+
+                    <img src="images/MasterChief.png" class="master-chief">
+
             </div>
             <div class="choose-attack-container">
-                <label for="attack-select">Choose your attack:</label>
+                <label class="attack-btns-label" for="attack-select">Choose your attack:</label>
                 <div id="attack-select" name="attack"></div>
             </div>
             <div class="player2-display">
                 <p class="player2-name">ENEMY</p>
-                <div id="player2-health"><div id="player2-health-bar"></div></div>
-                <p class="player2-attack-message"></p>
-                <div class="enemy-img">
-                    <img src="images/Halo-Enemy.png" class="enemy">
+                <div id="player2-health">
+                    <div id="player2-health-bar"></div>
                 </div>
+                <p class="player2-attack-message"></p>
+
+                    <img src="images/Halo-Enemy.png" class="enemy">
+
             </div>
 
         </div>
 
-    <div class="reset-btn"> <button class="reset" onClick="window.location.reload();">RESET</button></div>
+        <div class="reset-btn"> <button class="reset" onClick="window.location.reload();">RESET</button></div>
 
-    <div> </div>
+    </div>
     <script src="main.js"></script>
 
-    <body>
-
-
-    </body>
+</body>
 
 </html>
