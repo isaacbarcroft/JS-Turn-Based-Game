@@ -214,6 +214,7 @@ class Game {
         attackSelectContainer.style.display = "none";
         this.getCharacter();
         this.randomizeEnemy();
+        audio.play();
     }
     
 }
